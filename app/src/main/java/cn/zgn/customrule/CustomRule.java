@@ -468,7 +468,11 @@ public class CustomRule extends View {
 
         return true;
     }
-
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        getParent().requestDisallowInterceptTouchEvent(true);
+        return super.dispatchTouchEvent(event);
+    }
     /**
      *
      * @param isLeftCursor 当前是否对左游标进行判定
