@@ -46,7 +46,7 @@ public class CustomRule extends View {
     Rect rectCursor; // 游标部分
     Rect rectHintText; // 提示文本部分
 
-    private OnScaleListener listener;
+    private OnScaleListener onScaleListener;
 
     public interface OnScaleListener {
         void onScaleStart(float min, float max);
@@ -407,8 +407,8 @@ public class CustomRule extends View {
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                if (listener != null) {
-                    listener.onScaleStart(getLeftCursorFloatValue(), getRightCursorFloatValue());
+                if (onScaleListener != null) {
+                    onScaleListener.onScaleStart(getLeftCursorFloatValue(), getRightCursorFloatValue());
                 }
                 leftCursorIsMoving = false;
                 rightCursorIsMoving = false;
@@ -452,14 +452,14 @@ public class CustomRule extends View {
 
 
                 invalidate();
-                if (listener != null) {
-                    listener.onScaling(getLeftCursorFloatValue(), getRightCursorFloatValue());
+                if (onScaleListener != null) {
+                    onScaleListener.onScaling(getLeftCursorFloatValue(), getRightCursorFloatValue());
                 }
                 break;
 
             case MotionEvent.ACTION_UP:
-                if (listener != null) {
-                    listener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
+                if (onScaleListener != null) {
+                    onScaleListener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
                 }
                 leftCursorIsMoving = false;
                 rightCursorIsMoving = false;
@@ -486,8 +486,8 @@ public class CustomRule extends View {
         }
     }
 
-    public void setListener(OnScaleListener listener) {
-        this.listener = listener;
+    public void setOnScaleListener(OnScaleListener onScaleListener) {
+        this.onScaleListener = onScaleListener;
     }
 
     public void setHintText(String hintText) {
@@ -574,8 +574,8 @@ public class CustomRule extends View {
             leftCursorMiddleX = 99999;
         }
         invalidate();
-        if (listener != null) {
-            listener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
+        if (onScaleListener != null) {
+            onScaleListener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
         }
     }
 
@@ -616,8 +616,8 @@ public class CustomRule extends View {
         }
 
         invalidate();
-        if (listener != null) {
-            listener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
+        if (onScaleListener != null) {
+            onScaleListener.onScaleEnd(getLeftCursorFloatValue(), getRightCursorFloatValue());
         }
     }
 

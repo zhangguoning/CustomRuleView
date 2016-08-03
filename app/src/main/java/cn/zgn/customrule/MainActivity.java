@@ -30,13 +30,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text_et = (EditText) this.findViewById(R.id.text_et);
         text_tv = (TextView) this.findViewById(R.id.text_tv);
 
-        crule.setListener(this);
+        crule.setOnScaleListener(this);
         reset_but.setOnClickListener(this);
         ok_but.setOnClickListener(this);
         spacing_but.setOnClickListener(this);
         text_but.setOnClickListener(this);
 
         crule.setBackGroundColor(0xffffffff);
+        crule.setOnScaleListener(new CustomRule.OnScaleListener() {
+            @Override
+            public void onScaleStart(float min, float max) {
+                Log.i("onScaleStart()", "min = " + min + ",max = " + max);
+            }
+
+            @Override
+            public void onScaling(float min, float max) {
+                Log.i("onScaling()", "min = " + min + ",max = " + max);
+            }
+
+            @Override
+            public void onScaleEnd(float min, float max) {
+                Log.i("onScaleEnd()", "min = " + min + ",max = " + max);
+            }
+        });
     }
 
     @Override
@@ -63,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
             }
         }catch (Exception e){
-
         }
     }
 
