@@ -145,10 +145,11 @@ public class CustomRule extends View {
                 high_s = high + "";
             }
 
-            text = low + "~" + high_s + "万";
-
+            text = low + "~" + high_s ;
+//            text+="万";
             if (low > 100) {
-                text = "100+ 万";
+                text = "100+";
+//                text+="万";
             }
         } else {
             text = hintText;
@@ -469,7 +470,6 @@ public class CustomRule extends View {
     }
 
     /**
-     * y 点是否在 x ± offset 范围内
      *
      * @param isLeftCursor 当前是否对左游标进行判定
      * @param x

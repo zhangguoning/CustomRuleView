@@ -9,6 +9,7 @@
 
     <cn.zgn.customrule.CustomRule
         android:id="@+id/crule"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         />
