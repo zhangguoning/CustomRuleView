@@ -5,6 +5,7 @@
 Gradle 引入:
 
 在你的 project的 build.gradle 中添加:
+```groovy
 allprojects{
     repositories {
         mavenCentral()
@@ -12,11 +13,13 @@ allprojects{
         maven { url 'https://jitpack.io' }
     }
 }
+```
 在你的 app 的 build.gradle中 添加:
+```groovy
 dependencies {
     compile 'com.github.zhangguoning:CustomRuleView:1.1'
 }
-
+```
 用法：
 1.布局文件中：
 ```xml
